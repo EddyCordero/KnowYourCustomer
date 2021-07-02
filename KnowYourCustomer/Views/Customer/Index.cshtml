@@ -1,0 +1,48 @@
+﻿@model List<Domain.Entities.Customer>
+@using KnowYourCustomer.Framework.Extensions;
+<div class="row">
+    <div class="col-10">
+        <h1>Clientes</h1>
+    </div>
+    <div class="col-2">
+        <a href="/Customer/Create" class="btn btn-primary">Crear</a>
+    </div>
+</div>
+@if (Model != null && Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Tipo Nacionalidad</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">EMail</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <th scope="row">@item.PersonType.GetDisplayName()</th>
+                    <td>@item.FirstName @item.LastName</td>
+                    <td>@item.NationalityType.GetDisplayName()</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Email</td>
+                    <td>
+                        <a href="/Customer/Details/@item.Id" class="btn btn-info">Detalle</a>
+                        <a href="/Customer/Edit/@item.Id" class="btn btn-warning">Editar</a>
+                        <a href="/Customer/Delete/@item.Id" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-center"> ): No Hay Clientes para mostrar</p>
+}

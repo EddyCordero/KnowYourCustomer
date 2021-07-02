@@ -1,0 +1,15 @@
+﻿@model KnowYourCustomer.ViewModels.CustomerDetailsViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Esta seguro que desea elimiar a @Model.FirstName @Model.LastName</h1>
+
+<div>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Si , deseo eliminarlo" class="btn btn-danger" /> |
+        <a asp-action="Index">No</a>
+    </form>
+</div>

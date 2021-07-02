@@ -1,0 +1,16 @@
+﻿@model KnowYourCustomer.ViewModels.CustomerAddressAddViewModel
+@using KnowYourCustomer.Framework.Extensions;
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div>
+<h1>Eliminar</h1>
+<hr />
+<h1>Esta seguro que desea elimiar la direccion @Model.AddressType.GetDisplayName() -  @Model.Street, @Model.Number ?</h1>
+
+<form asp-action="Delete">
+    <input type="submit" value="Delete" class="btn btn-danger" /> |
+    <a href="@("/Customer/Details/" + Model.CustomerId)">Volver</a>
+</form>
+</div>
