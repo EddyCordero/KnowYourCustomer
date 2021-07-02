@@ -1,5 +1,5 @@
 Web/wwwroot/Helpers/log/**/*
-*.db
+# *.db
 # Autosave files
 *~
 .mfractor/
